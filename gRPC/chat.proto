@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package gRPC;
+
+message SendMessageRequest {
+  string id = 1;        
+  string message = 2;   
+}
+
+message SendMessageResponse {
+  bool ok = 1;
+  string error = 2;
+}
+
+message GetMessagesRequest {
+    string id = 1;        
+}
+
+message GetMessagesResponse {
+  repeated string sender = 1; 
+  repeated string messages = 2; 
+  repeated int64 time = 3;
+}
+
+service ChatService {
+  rpc SendMessage (SendMessageRequest) returns (SendMessageResponse);
+  rpc GetMessages (GetMessagesRequest) returns (GetMessagesResponse);
+}
