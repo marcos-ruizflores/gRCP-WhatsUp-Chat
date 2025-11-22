@@ -8,7 +8,9 @@ service ChatService {
 message Message {
   string nickname = 1;
   string text = 2;
+  string timestamp = 3;  
 }
+
 
 message SendResponse {
   bool ok = 1;

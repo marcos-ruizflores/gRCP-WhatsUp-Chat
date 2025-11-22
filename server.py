@@ -3,13 +3,19 @@ from concurrent import futures
 import time
 import chat_pb2
 import chat_pb2_grpc
+from datetime import datetime   # ✔️ Import correcto aquí arriba
 
 CHAT_FILE = "chatlog.txt"
 
 class ChatService(chat_pb2_grpc.ChatServiceServicer):
+
     def sendMessage(self, request, context):
+        ts = datetime.now().strftime("%H:%M")  # hh:mm
+        line = f"{ts} {request.nickname}: {request.text}\n"
+
         with open(CHAT_FILE, "a") as f:
-            f.write(f"{request.nickname}: {request.text}\n")
+            f.write(line)
+
         return chat_pb2.SendResponse(ok=True)
 
     def getMessages(self, request, context):

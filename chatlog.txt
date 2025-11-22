@@ -1,6 +1,7 @@
-Marcos: Hola
-Benito: que tal marcos
-Marcos: muy bien
-Javier: Hola chicos acabo de unirme
-Marc: Hola yo soy marc y soy tonto
-Javier: Hola marc
+12:47 Javier: hola
+12:47 Marc: Que tal javier
+12:47 Javier: muy bien y tu ? 
+12:47 Marc: pues bastante bien gracias
+12:47 Marc: bueno creo que me desconecto un rato luego vuelvo 
+12:47 Javier: okkey chao
+12:48 Marc: bye bye
