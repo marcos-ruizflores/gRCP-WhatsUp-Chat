@@ -1,0 +1,6 @@
+Marcos: Hola
+Benito: que tal marcos
+Marcos: muy bien
+Javier: Hola chicos acabo de unirme
+Marc: Hola yo soy marc y soy tonto
+Javier: Hola marc

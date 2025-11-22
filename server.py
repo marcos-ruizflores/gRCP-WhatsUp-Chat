@@ -1,0 +1,32 @@
+import grpc
+from concurrent import futures
+import time
+import chat_pb2
+import chat_pb2_grpc
+
+CHAT_FILE = "chatlog.txt"
+
+class ChatService(chat_pb2_grpc.ChatServiceServicer):
+    def sendMessage(self, request, context):
+        with open(CHAT_FILE, "a") as f:
+            f.write(f"{request.nickname}: {request.text}\n")
+        return chat_pb2.SendResponse(ok=True)
+
+    def getMessages(self, request, context):
+        try:
+            with open(CHAT_FILE, "r") as f:
+                lines = f.readlines()
+        except FileNotFoundError:
+            lines = []
+        return chat_pb2.MessageList(lines=lines)
+
+def serve():
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    chat_pb2_grpc.add_ChatServiceServicer_to_server(ChatService(), server)
+    server.add_insecure_port("[::]:50051")
+    server.start()
+    print("Server running on port 50051")
+    server.wait_for_termination()
+
+if __name__ == "__main__":
+    serve()
