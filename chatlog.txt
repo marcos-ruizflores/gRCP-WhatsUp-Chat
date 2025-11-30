@@ -1,14 +1,13 @@
-12:47 Javier: hola
-12:47 Marc: Que tal javier
-12:47 Javier: muy bien y tu ? 
-12:47 Marc: pues bastante bien gracias
-12:47 Marc: bueno creo que me desconecto un rato luego vuelvo 
-12:47 Javier: okkey chao
-12:48 Marc: bye bye
-12:59 Marc: hola
-13:07 Marc: encantado
-13:07 Javier: gracias
-13:07 Javier: pues nos vemos
-13:07 Javier: hasta luego 
-13:07 Marc: chaooooo
-13:08 Marcos: hola cabrones
+2025-11-30 10:44:51 Marcos: Hola como estas | vc={'Marcos': 1, 'server': 1}
+2025-11-30 10:45:03 Javier: muy bien | vc={'Marcos': 1, 'Javier': 1, 'server': 2}
+2025-11-30 10:45:07 Javier: me voy ahora  | vc={'Marcos': 1, 'Javier': 2, 'server': 3}
+2025-11-30 10:45:24 Javier: exit | vc={'Marcos': 1, 'Javier': 3, 'server': 4}
+2025-11-30 10:50:44 Javier: jola | vc={'server': 5, 'Marcos': 1, 'Javier': 4}
+2025-11-30 10:52:00 Marcos: jolin te has ido | vc={'server': 7, 'sistema': 1, 'Marcos': 2, 'Javier': 5}
+2025-11-30 11:01:55 Ernesto: hola | vc={'Javier': 5, 'server': 7, 'sistema': 1, 'Marcos': 2, 'Ernesto': 1}
+2025-11-30 11:08:31 Javier: holaaaa | vc={'server': 8, 'sistema': 1, 'Ernesto': 1, 'Javier': 6, 'Marcos': 2}
+2025-11-30 11:09:03 Marcos: joer me he quedado solo | vc={'server': 11, 'sistema': 1, 'Marcos': 3, 'Javier': 6, 'Ernesto': 1}
+2025-11-30 11:22:12 Marcos: hola | vc={'sistema': 1, 'server': 10, 'Javier': 6, 'Ernesto': 1, 'Marcos': 4}
+2025-11-30 11:22:40 Marcos: hola | vc={'Ernesto': 1, 'Javier': 6, 'sistema': 1, 'Marcos': 5, 'server': 11}
+2025-11-30 11:34:40 Marcos: Que tal | vc={'Javier': 6, 'server': 12, 'sistema': 1, 'Ernesto': 1, 'Marcos': 6}
+2025-11-30 11:35:16 Javier: hola marcos como estas | vc={'Javier': 7, 'server': 13, 'sistema': 1, 'Ernesto': 1, 'Marcos': 6}
