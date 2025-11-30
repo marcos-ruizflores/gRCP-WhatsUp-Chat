@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+service ChatService {
+  rpc sendMessage(Message) returns (SendResponse);
+  rpc getMessages(ClientInfo) returns (MessageList);
+  rpc disconnect(ClientInfo) returns (Empty);
+}
+
+message Message {
+  string nickname = 1;
+  string text = 2;
+  string timestamp = 3;
+  map<string, int32> vector_clock = 4;
+  bool ephemeral = 5;
+}
+
+
+message SendResponse {
+  bool ok = 1;
+}
+
+message MessageList {
+  repeated Message messages = 1;
+  repeated string connected_users = 2;
+}
+
+message ClientInfo {
+  string nickname = 1;
+}
+
+message Empty {}
