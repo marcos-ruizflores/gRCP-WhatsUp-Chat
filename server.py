@@ -33,7 +33,7 @@ class ChatService(chat_pb2_grpc.ChatServiceServicer):
                 less = True
         return less
 
-    # ordena los mensajes por vector clock
+    # sort messages by vector clock
     def _ordered_messages_locked(self):
 
         remaining = list(self.messages)

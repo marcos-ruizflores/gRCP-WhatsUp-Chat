@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+*.pyc
+.idea/
+chat_pb2.py
+chat_pb2_grpc.py
+chatlog.txt
+.DS_Store

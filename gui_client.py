@@ -80,7 +80,7 @@ class ChatGUI:
     def add_message(self, msg):
         self.chat_box.config(state=tk.NORMAL)
 
-        # Formato actual del servidor: "Javier: Hola"
+        # current server format: "Javier: Hola"
         if ": " in msg:
             user, text = msg.split(": ", 1)
             timestamp = ""
@@ -92,7 +92,7 @@ class ChatGUI:
 
         color = "lightgreen" if user == nickname else "cyan"
 
-        # Insertar mensaje
+        # insert the message
         self.chat_box.insert(tk.END, f"{user}: ", color)
         self.chat_box.insert(tk.END, text + "\n")
 

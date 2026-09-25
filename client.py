@@ -57,7 +57,7 @@ def curses_main(stdscr, stub):
     curses.curs_set(1)
     stdscr.nodelay(True)
 
-    # añadimos los colores que queremos mirar de si cambiar para que quede más bonito
+    # color pairs, might tweak these later so it looks nicer
     curses.start_color()
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
     curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
@@ -69,7 +69,7 @@ def curses_main(stdscr, stub):
     while True:
         stdscr.clear()
 
-        # size de la pantalla
+        # terminal size
         h, w = stdscr.getmaxyx()
         sidebar_width = 20
         max_msgs = h - 3
@@ -81,7 +81,7 @@ def curses_main(stdscr, stub):
 
         for i, msg in enumerate(to_show):
             try:
-                # formato de la string que mostramos "YYYY-MM-DD HH:MM:SS nombre: texto"
+                # display format: "YYYY-MM-DD HH:MM:SS name: text"
                 parts = msg.split(" ", 3)
                 if len(parts) >= 4 and parts[2].endswith(":"):
                     ts = f"{parts[0]} {parts[1]}"
@@ -95,9 +95,9 @@ def curses_main(stdscr, stub):
                     user = "?"
                     text = msg
 
-                # Determinar color de la persona
+                # pick the user's color
                 if user.startswith(nickname):
-                    color_user = curses.color_pair(2)  # verde
+                    color_user = curses.color_pair(2)  # green
                 else:
                     color_user = get_color_for_user(user)
 
@@ -107,13 +107,13 @@ def curses_main(stdscr, stub):
                 offset = len(ts) + 1 if ts else 0
                 stdscr.addstr(i, offset, user + ": ", color_user)
 
-                # mostramos el mensaje
+                # draw the message
                 stdscr.addstr(i, offset + len(user) + 2, text)
 
             except Exception:
                 stdscr.addstr(i, 0, msg)
 
-        # Lista dinámica de usuarios conectados
+        # live list of connected users
         sidebar_x = main_width + 1
         stdscr.vline(0, sidebar_x - 1, "|", h - 1)
         stdscr.addstr(0, sidebar_x, "Conectados:", curses.color_pair(1))
@@ -163,10 +163,10 @@ def main():
     channel = grpc.insecure_channel(sys.argv[1] + ":50051")
     stub = chat_pb2_grpc.ChatServiceStub(channel)
 
-    # Thread para recibir mensajes
+    # thread that receives messages
     threading.Thread(target=poll_messages, args=(stub,), daemon=True).start()
 
-    # Interfaz
+    # UI
     try:
         curses.wrapper(curses_main, stub)
     except KeyboardInterrupt:
